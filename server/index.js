@@ -33,12 +33,20 @@ app.post('/api/contact', async (req,res) => {
     }
 })
 
+let port = process.env.PORT;
+if(port == null || port == ""){
+    port = 3000;
+}
+
+
+
+
 
 const startServer = async() => {
     try {
         await connectDb(process.env.MONGO_URI)
-        app.listen(8080,() => {
-            console.log('listening on port 8080')
+        app.listen(port,() => {
+            console.log(`listening on port ${port}`)
             })
     } catch (error) {
         console.log(error)
