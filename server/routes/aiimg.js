@@ -1,0 +1,42 @@
+import express from 'express';
+import * as dotenv from 'dotenv'
+import { Configuration, OpenAIApi } from "openai";
+
+
+dotenv.config()
+const router = express.Router()
+const configuration = new Configuration({
+    
+    apiKey:process.env.OPENAI_KEY_2
+});
+
+const openai = new OpenAIApi(configuration);
+console.log(process.env.OPENAI_KEY_2)
+
+router.get('/', async(req,res)=>{
+    res.send('daat setup dome')
+})
+
+router.post('/',async (req,res)=>{
+    try {
+        const propmt= req.body
+       
+       
+
+        const aiResponse = await openai.createImage({
+            "prompt":myData,
+           "n":1,
+            "size":"1024x1024",
+            "response_format":"b64_json"
+        })
+        const image = aiResponse.data.data[0].b64_json;
+        res.status(200).json({photo:image})
+    } catch (error) {
+        console.log(error.message)
+        res.status(500).send(error?.response.data.error.message || 'Something went wrong');
+        
+    }
+    
+
+})
+export default router
