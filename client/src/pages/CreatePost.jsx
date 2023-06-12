@@ -80,7 +80,7 @@ const CreatePost = () => {
           })
         }
 
-        const response = await fetch('http://localhost:3000/api/v1/aiimg', option)
+        const response = await fetch('https://aiimg-server.vercel.app/api/v1/aiimg', option)
         const data = await response.json()
        
 
