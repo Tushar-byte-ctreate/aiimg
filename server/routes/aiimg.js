@@ -11,7 +11,7 @@ const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration);
-console.log(process.env.OPENAI_KEY_2)
+
 
 router.get('/', async(req,res)=>{
     res.send('daat setup dome')
@@ -19,7 +19,9 @@ router.get('/', async(req,res)=>{
 
 router.post('/',async (req,res)=>{
     try {
-        const propmt= req.body
+        const prompt= req.body
+
+        const myData =  req.body.prompt
        
        
 

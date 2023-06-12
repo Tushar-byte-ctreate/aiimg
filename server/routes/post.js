@@ -12,7 +12,7 @@ cloudinary.config({
   });
   
 
-  console.log( process.env.CLOUD_NAME)
+ 
   
 
 const router = express.Router()

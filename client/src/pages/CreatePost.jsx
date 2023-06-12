@@ -11,9 +11,7 @@ import dotenv from 'dotenv'
 
 const CreatePost = () => {
 
-  // const secondKey = `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`
-  //   const apiKey = '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'
-  // const apiUrl = 'https://api.openai.com/v1/images/generations';
+
 
   const navigate = useNavigate();
 
@@ -38,7 +36,7 @@ const CreatePost = () => {
       }
 
       try {
-        const response = await fetch('http://localhost:8080/api/v1/posts', {
+        const response = await fetch('https://aiimg-server.vercel.app/api/v1/posts', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -82,7 +80,7 @@ const CreatePost = () => {
           })
         }
 
-        const response = await fetch('http://localhost:8080/api/v1/aiimg', option)
+        const response = await fetch('http://localhost:3000/api/v1/aiimg', option)
         const data = await response.json()
        
 
